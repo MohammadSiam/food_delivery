@@ -15,7 +15,6 @@ class MyTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBar(
       controller: tabController,
-      isScrollable: true,
       labelStyle: const TextStyle(fontSize: 12),
       labelPadding: const EdgeInsets.symmetric(horizontal: 12),
       padding: EdgeInsets.zero,

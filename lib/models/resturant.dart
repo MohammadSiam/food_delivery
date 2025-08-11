@@ -1,6 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:food_delivery/models/food.dart';
 
-class Restaurant {
+class Restaurant extends ChangeNotifier {
   final List<Food> _menu = [
     // ---------------- BURGERS ----------------
     Food(
@@ -28,7 +29,7 @@ class Restaurant {
     Food(
       name: "Double Patty Burger",
       description: "Two juicy patties stacked with cheese and pickles.",
-      imagePath: "https://images.unsplash.com/photo-1606755962773-0e929b9e94c8",
+      imagePath: "https://images.unsplash.com/photo-1550547660-d9450f859349",
       price: 10.99,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -39,7 +40,7 @@ class Restaurant {
     Food(
       name: "Veggie Burger",
       description: "Plant-based patty with fresh vegetables and vegan mayo.",
-      imagePath: "https://images.unsplash.com/photo-1617196034370-5c498f21c06d",
+      imagePath: "https://images.unsplash.com/photo-1550547660-d9450f859349",
       price: 7.99,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -50,7 +51,7 @@ class Restaurant {
     Food(
       name: "Spicy Chicken Burger",
       description: "Crispy fried chicken with spicy mayo and lettuce.",
-      imagePath: "https://images.unsplash.com/photo-1596956475561-327e41d5f7fa",
+      imagePath: "https://images.unsplash.com/photo-1550547660-d9450f859349",
       price: 8.50,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -64,7 +65,7 @@ class Restaurant {
       name: "Grilled Chicken Salad",
       description:
           "Fresh greens with grilled chicken, cherry tomatoes, and vinaigrette.",
-      imagePath: "https://images.unsplash.com/photo-1562967916-eb82221dfb36",
+      imagePath: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7",
       price: 7.49,
       category: FoodCategory.salads,
       availableAddons: [
@@ -76,7 +77,7 @@ class Restaurant {
       name: "Caesar Salad",
       description:
           "Romaine lettuce with Caesar dressing, parmesan, and croutons.",
-      imagePath: "https://images.unsplash.com/photo-1604908177546-45a9fef53a2c",
+      imagePath: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0",
       price: 6.99,
       category: FoodCategory.salads,
       availableAddons: [
@@ -99,7 +100,7 @@ class Restaurant {
     Food(
       name: "Avocado Salad",
       description: "Mixed greens with ripe avocado and lemon dressing.",
-      imagePath: "https://images.unsplash.com/photo-1617196034566-2a4d1e87e1b8",
+      imagePath: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1",
       price: 7.20,
       category: FoodCategory.salads,
       availableAddons: [
@@ -123,7 +124,7 @@ class Restaurant {
     Food(
       name: "French Fries",
       description: "Golden crispy fries with a pinch of sea salt.",
-      imagePath: "https://images.unsplash.com/photo-1541592106381-f3e06cc4b9a9",
+      imagePath: "https://images.unsplash.com/photo-1604152135912-04a022e23696",
       price: 3.50,
       category: FoodCategory.sides,
       availableAddons: [
@@ -134,7 +135,7 @@ class Restaurant {
     Food(
       name: "Onion Rings",
       description: "Crispy golden onion rings with dipping sauce.",
-      imagePath: "https://images.unsplash.com/photo-1625944226835-6e51fba9e8d5",
+      imagePath: "https://images.unsplash.com/photo-1604152135912-04a022e23696",
       price: 4.20,
       category: FoodCategory.sides,
       availableAddons: [
@@ -145,7 +146,7 @@ class Restaurant {
     Food(
       name: "Garlic Bread",
       description: "Toasted bread with garlic butter and herbs.",
-      imagePath: "https://images.unsplash.com/photo-1604908177546-45a9fef53a2c",
+      imagePath: "https://images.unsplash.com/photo-1604152135912-04a022e23696",
       price: 3.99,
       category: FoodCategory.sides,
       availableAddons: [
@@ -156,7 +157,7 @@ class Restaurant {
     Food(
       name: "Mozzarella Sticks",
       description: "Fried mozzarella cheese served with marinara sauce.",
-      imagePath: "https://images.unsplash.com/photo-1617196034298-0b548f7f8abf",
+      imagePath: "https://images.unsplash.com/photo-1604152135912-04a022e23696",
       price: 4.80,
       category: FoodCategory.sides,
       availableAddons: [
@@ -167,7 +168,7 @@ class Restaurant {
     Food(
       name: "Sweet Potato Fries",
       description: "Crispy sweet potato fries with a dash of cinnamon.",
-      imagePath: "https://images.unsplash.com/photo-1594007654729-407eedc4f45f",
+      imagePath: "https://images.unsplash.com/photo-1604152135912-04a022e23696",
       price: 4.50,
       category: FoodCategory.sides,
       availableAddons: [
@@ -191,7 +192,7 @@ class Restaurant {
     Food(
       name: "Ice Cream Sundae",
       description: "Vanilla ice cream topped with chocolate sauce and nuts.",
-      imagePath: "https://images.unsplash.com/photo-1589710751808-cd4a7c365d4a",
+      imagePath: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
       price: 5.20,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -202,7 +203,7 @@ class Restaurant {
     Food(
       name: "Cheesecake",
       description: "Creamy cheesecake with a graham cracker crust.",
-      imagePath: "https://images.unsplash.com/photo-1599785209707-28c6c9f26c5c",
+      imagePath: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
       price: 5.80,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -213,7 +214,7 @@ class Restaurant {
     Food(
       name: "Brownie",
       description: "Fudgy chocolate brownie with walnuts.",
-      imagePath: "https://images.unsplash.com/photo-1600891964599-0fcb52c9b6f1",
+      imagePath: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
       price: 4.90,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -224,7 +225,7 @@ class Restaurant {
     Food(
       name: "Fruit Tart",
       description: "Crisp pastry filled with custard and fresh fruits.",
-      imagePath: "https://images.unsplash.com/photo-1599785209558-6a0b38d997ce",
+      imagePath: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
       price: 6.20,
       category: FoodCategory.desserts,
       availableAddons: [
@@ -259,7 +260,7 @@ class Restaurant {
     Food(
       name: "Lemonade",
       description: "Freshly squeezed lemonade with mint.",
-      imagePath: "https://images.unsplash.com/photo-1553530666-36628b54939a",
+      imagePath: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b",
       price: 3.50,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -270,7 +271,7 @@ class Restaurant {
     Food(
       name: "Mango Smoothie",
       description: "Blended mango with yogurt and honey.",
-      imagePath: "https://images.unsplash.com/photo-1627308595186-6a61c91e12d1",
+      imagePath: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b",
       price: 4.80,
       category: FoodCategory.drinks,
       availableAddons: [
@@ -281,7 +282,7 @@ class Restaurant {
     Food(
       name: "Hot Chocolate",
       description: "Warm chocolate drink topped with marshmallows.",
-      imagePath: "https://images.unsplash.com/photo-1600891964764-87b6b0bb09b2",
+      imagePath: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b",
       price: 3.70,
       category: FoodCategory.drinks,
       availableAddons: [
