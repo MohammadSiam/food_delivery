@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/components/current_location.dart';
 import 'package:food_delivery/components/description_box.dart';
 import 'package:food_delivery/components/drawer.dart';
+import 'package:food_delivery/components/food_page.dart';
 import 'package:food_delivery/components/food_tile.dart';
 import 'package:food_delivery/components/sliver_app_bar.dart';
 import 'package:food_delivery/components/tab_bar.dart';
@@ -48,7 +49,13 @@ class _HomePageState extends State<HomePage>
         padding: EdgeInsets.zero,
         itemBuilder: (context, index) {
           final food = categoryMenu[index];
-          return MyFoodTile(food: food, onTap: () {});
+          return MyFoodTile(
+            food: food,
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MyFoodPage(food: food)),
+            ),
+          );
         },
       );
     }).toList();

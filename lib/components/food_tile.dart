@@ -15,18 +15,18 @@ class MyFoodTile extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.tertiary,
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.black12,
+              color: Theme.of(context).colorScheme.background,
               blurRadius: 6,
               offset: Offset(0, 3),
             ),
           ],
         ),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // Image with fixed size
             ClipRRect(
@@ -47,9 +47,10 @@ class MyFoodTile extends StatelessWidget {
                 children: [
                   Text(
                     food.name,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -57,15 +58,17 @@ class MyFoodTile extends StatelessWidget {
                     food.description,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(color: Colors.grey[600]),
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
                   ),
                   const SizedBox(height: 8),
                   Text(
                     "\$${food.price.toStringAsFixed(2)}",
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
-                      color: Colors.green,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                 ],
