@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/components/current_location.dart';
 import 'package:food_delivery/components/description_box.dart';
 import 'package:food_delivery/components/drawer.dart';
-import 'package:food_delivery/components/food_page.dart';
 import 'package:food_delivery/components/food_tile.dart';
 import 'package:food_delivery/components/sliver_app_bar.dart';
 import 'package:food_delivery/components/tab_bar.dart';
 import 'package:food_delivery/models/food.dart';
 import 'package:food_delivery/models/resturant.dart';
+import 'package:food_delivery/pages/food_page.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
