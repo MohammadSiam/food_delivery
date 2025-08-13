@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/components/button.dart';
 import 'package:food_delivery/components/cart_tile.dart';
 import 'package:food_delivery/models/resturant.dart';
 import 'package:provider/provider.dart';
@@ -32,7 +33,13 @@ class CartPage extends StatelessWidget {
                           child: const Text("Cancel"),
                         ),
 
-                        TextButton(onPressed: () {}, child: const Text("Yes")),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                            restaurant.clearCart();
+                          },
+                          child: const Text("Yes"),
+                        ),
                       ],
                     ),
                   );
@@ -44,14 +51,29 @@ class CartPage extends StatelessWidget {
           body: Column(
             children: [
               Expanded(
-                child: ListView.builder(
-                  itemCount: userCart.length,
-                  itemBuilder: (context, index) {
-                    final cartItem = userCart[index];
-                    return CartTile(cartItem: cartItem);
-                  },
+                child: Column(
+                  children: [
+                    userCart.isEmpty
+                        ? Expanded(
+                            child: Center(
+                              child: Text("No cart item found!!!!"),
+                            ),
+                          )
+                        : Expanded(
+                            child: ListView.builder(
+                              itemCount: userCart.length,
+                              itemBuilder: (context, index) {
+                                final cartItem = userCart[index];
+                                return CartTile(cartItem: cartItem);
+                              },
+                            ),
+                          ),
+                  ],
                 ),
               ),
+
+              MyButton(text: "Go to checkout", onTap: () {}),
+              const SizedBox(height: 25),
             ],
           ),
         );
